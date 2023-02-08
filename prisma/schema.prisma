@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fieldReference", "metrics", "extendedWhereUnique"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ticket {
+	id	    Int	@default(autoincrement())	@id
+	number  String
+	result  String? @db.VarChar(10485760)
+	date	DateTime
+}
